@@ -1,22 +1,33 @@
-import React from 'react';
-import './App.css';
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import Main from "./components/Main/index"
-import Header from "./components/Header/index"
+import React from "react";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
     return (
         <Router>
             <div>
-                <Header />
-                <Main />
+                <Navbar />
+                <Switch>
+                    <Route exact path={["/", "/about"]}>
+                        <About />
+                    </Route>
+                    <Route exact path={["/projects"]}>
+                        <Projects />
 
-                {/* Based on `this.state.currentPage`, render the appropriate component
-          here. */}
+                    </Route>
 
+
+
+                </Switch>
             </div>
         </Router>
-    )
+
+    );
 }
 
 export default App;
